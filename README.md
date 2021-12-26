@@ -11,5 +11,5 @@ npm run build
 5- then run server
 node build/.
 our main Route http://localhost:3000/api
-to resize img http://localhost:3000/api/resize/?fileName=<name>&height=<number>&width==<number>
+to resize img http://localhost:3000/api/resize/?fileName=<name>&height=<num>&width==<num>
 to see an image after resize http://localhost:3000/api/resize?fileName=fjord&height=100&width=100

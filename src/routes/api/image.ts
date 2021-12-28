@@ -6,7 +6,7 @@ import { checkIsExist } from '../../path/getpath'
 
 const newImg = express.Router()
 
-newImg.get('/', async (req: Request, res: Response) => {
+newImg.get('/', async (req: Request, res: Response): Promise<void> => {
   // it changed as you said to be 10
   const width: number = parseInt(req.query.width as string, 10)
   const height: number = parseInt(req.query.height as string, 10)

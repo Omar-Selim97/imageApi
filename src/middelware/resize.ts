@@ -7,7 +7,7 @@ import sharp from 'sharp'
 import { imgPath, thumbnailPath } from '../path/getpath'
 
 // resize our image with sharp
-const resiezeImg = async (fileName: string, width: string, height: string) => {
+const resiezeImg = async (fileName: string, width: string, height: string): Promise<void> => {
   await sharp(path.join(imgPath, `${fileName}.jpg`))
     .resize(parseInt(width, 10), parseInt(height, 10))
     .toFile(path.join(thumbnailPath, `${fileName}${width}x${height}.jpg`))

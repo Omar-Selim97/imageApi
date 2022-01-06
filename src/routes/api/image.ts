@@ -19,8 +19,8 @@ newImg.get('/', async (req: Request, res: Response): Promise<void> => {
     const image = getImage(fileName, width as unknown as string, height as unknown as string)
     res.status(200).end(image)
   } catch (error) {
-    console.log(error)
     res.status(404).send('your image is not found try anthor path')
+    throw new Error(`'whoops' ${error}`)
   }
 })
 

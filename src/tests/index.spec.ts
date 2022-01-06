@@ -1,7 +1,8 @@
 import supertest from 'supertest'
 import fs from 'fs'
 import app from '../index'
-import { thumbnailPath } from '../path/getpath'
+import { thumbnailPath, checkIsExist } from '../path/getpath'
+import { resiezeImg, getImage } from '../middelware/resize'
 
 // create a request object
 const request = supertest(app)
@@ -17,5 +18,15 @@ describe('check our endpoint', () => {
   })
   it('Images by first time properties should not be exist', () => {
     expect(fs.existsSync(`${thumbnailPath}/fjord500x500.jpg`)).toBeFalsy()
+  })
+
+  it('expect checkIsExist function defined ', () => {
+    expect(checkIsExist).toBeDefined()
+  })
+  it('check resize and get image pass test', async () => {
+    await resiezeImg('nar', '500', '500')
+    const image = getImage('nar', '500', '500')
+
+    expect(image).toBeTruthy()
   })
 })
